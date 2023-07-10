@@ -29,7 +29,10 @@ namespace asanchezS6
                 parametros.Add("apellido", txtApellido.Text);
                 parametros.Add("edad", txtEdad.Text);
                 cliente.UploadValues("http://192.168.100.65/ws_uisrael/post.php", "POST", parametros);
-                Navigation.PushAsync(new MainPage());   
+                Navigation.PushAsync(new MainPage());
+
+                var mensaje = "Elemento ingresado con exito";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
             }
             catch (Exception ex)
             {

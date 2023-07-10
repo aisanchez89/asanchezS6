@@ -35,6 +35,9 @@ namespace asanchezS6
                 cliente.UploadValues("http://192.168.100.65/ws_uisrael/post.php?codigo=" + txtCodigo.Text + "&nombre=" + txtNombre.Text + "&apellido=" + txtApellido.Text + "&Edad=" + txtEdad.Text, "PUT", parametros);
                 DisplayAlert("Alerta", "Dato Actualizado", "Cerrar");
                 Navigation.PushAsync(new MainPage());
+
+                var mensaje = "Elemento actualizado con exito";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
             }
             catch (Exception ex)
             {
@@ -54,6 +57,9 @@ namespace asanchezS6
                 cliente.UploadValues("http://192.168.100.65/ws_uisrael/post.php?codigo=" + txtCodigo.Text, "DELETE", parametros);
                 DisplayAlert("Alerta", "Dato Eliminado", "Cerrar");
                 Navigation.PushAsync(new MainPage());
+
+                var mensaje = "Elemento eliminado con exito";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
             }
             catch (Exception ex)
             {
